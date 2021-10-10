@@ -2,9 +2,15 @@
 const express = require("express");
 const app = express();
 
+// Import cookie-parser to read cookie from client
+const cookieParser = require("cookie-parser");
 
 // Declare developing port to 3000
 const port = 3000;
+
+
+// Declare that we are going to use cookie-parser
+app.use(cookieParser());
 
 
 // Start listening
