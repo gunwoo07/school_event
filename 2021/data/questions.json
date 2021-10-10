@@ -1,0 +1,10 @@
+{
+    "questions": [
+        {
+            "id": 0,
+            "question": "나의 생일은 언제인가요?",
+            "hint": "YYMMDD",
+            "answer": "070208"
+        }
+    ]
+}
