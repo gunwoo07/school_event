@@ -73,10 +73,10 @@ router.get("/:questionNum", (req, res) => {
             return;
         }
 
-        res.send({
-            "question": jsonData["questions"][questionNum]["question"],
-            "hint": jsonData["questions"][questionNum]["hint"],
-            "answer": jsonData["questions"][questionNum]["answer"]
+        res.render("questionView", {
+            questionNum: questionNum + 1,
+            question: jsonData["questions"][questionNum]["question"],
+            hint: jsonData["questions"][questionNum]["hint"]
         });
     });
 });
