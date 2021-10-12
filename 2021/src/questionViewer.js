@@ -10,14 +10,15 @@ var path = require("path");
 
 // Declare function that check user status
 // res: response from client, questions: jsonData["questions"]
-let checkStatus = (res, questions) => {
+let checkStatus = (req, questions) => {
 
     // Declare cookies
-    let cookies = res.cookies;
-
+    let cookies = req.cookies;
+    console.log(req.cookies)
     // Wrong response
     if (cookies === undefined) {
-        res.cookie("0", "");
+        console.log("Wrong inupt")
+        req.cookie("0", "");
         return 0;
     }
 
@@ -30,7 +31,7 @@ let checkStatus = (res, questions) => {
         }
 
         // Set 0
-        res.cookie("0", "");
+        req.cookie("0", "");
         return 0;
     }
 
@@ -65,11 +66,11 @@ router.get("/:questionNum", (req, res) => {
         // Parse txt to json
         let jsonData = JSON.parse(jsonFile);
         // Get now user's status
-        let status = checkStatus(res, jsonData["Questions"]);
+        let status = checkStatus(req, jsonData["questions"]);
 
         // If status is different to now status -> Move user to correct status
         if (status !== questionNum) {
-            res.redirect(`/${status}`);
+            res.redirect(`/question/${status}`);
             return;
         }
 
@@ -78,6 +79,47 @@ router.get("/:questionNum", (req, res) => {
             question: jsonData["questions"][questionNum]["question"],
             hint: jsonData["questions"][questionNum]["hint"]
         });
+    });
+});
+
+
+router.get("/:questionNum/:answer", (req, res) => {
+
+    // Declare question data file path
+    let filePath = path.join(__dirname, "../data/questions.json");
+    // Declare input user status
+    let questionNum = parseInt(req.params.questionNum);
+    // Declare input answer by user
+    let userAnswer = req.params.answer;
+
+    // Read question data with utf8 encoding
+    fs.readFile(filePath, "utf8", (err, jsonFile) => {
+
+        // If there is an error while reading a question data throw error
+        if (err) {
+            throw err;
+        }
+
+        // Parse txt to json
+        let jsonData = JSON.parse(jsonFile);
+        // Get now user's status
+        let status = checkStatus(res, jsonData["Questions"]);
+
+        // If status is different to now status -> Move user to correct status
+        if (status !== questionNum) {
+            res.redirect(`/question/${status}`);
+            return;
+        }
+
+        
+        // If userAnswer == realAnswer -> redirect to next status
+        if (userAnswer == jsonData["questions"][questionNum]["answer"]) {
+            res.cookie(String(status), userAnswer);
+            res.redirect(`/question/${status + 1}`);
+            return;
+        }
+
+        return;
     });
 });
 
