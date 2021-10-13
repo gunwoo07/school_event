@@ -144,6 +144,10 @@ router.post("/finish", (req, res) => {
                 });
 
                 fs.writeFile(successPath, JSON.stringify(successData, null, 2), () => {});
+                // Delete all cookies
+                for (var i = 0; i < Object.keys(cookies).length; i++) {
+                    res.clearCookie(Object.keys(cookies)[i]);
+                }
                 return;
             });
             return;

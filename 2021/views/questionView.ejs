@@ -12,8 +12,39 @@
             <%= question %>
         </div>
         <div class="hint">
-            힌트: <%= hint %>
+            힌트 <%= hint %>
         </div>
     </div>
 </body>
+<style>
+    @font-face {
+        font-family: 'yg-jalnan';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #fefae0;
+        font-family: "yg-jalnan";
+        display: flex;
+    }
+
+    .question-box {
+        border-radius: 20px;
+        padding: 10px;
+        margin: auto;
+        background-color: #e9c46a;
+        color: #264653;
+        text-align: center;
+        box-shadow: 0 0 11px rgba(40,40,40,.2); 
+    }
+
+    .question {
+        font-size: 26px;
+    }
+</style>
 </html>

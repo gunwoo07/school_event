@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>축하합니다</title>
+</head>
+<body>
+    <div class="congraturation">
+        축하합니다. 모든 문제를 해결하여 미궁을 탈출하셨습니다.
+        <br>
+        이 미궁을 탈출한 당신의 학번과 이름을 적어주세요.
+        <br>
+        (이상한 이름을 적을 시 상품이 전달되지 않을 수 있습니다.)
+        <form method="post" action="/question/finish">
+            <div class="input">
+                <input type="text" class="stdntId" name="stdntId" id="stdntId" placeholder="학번" autocomplete="off"/>
+            </div>
+            <div class="input">
+                <input type="text" class="name" name="name" id="name" placeholder="이름" autocomplete="off" />
+            </div>
+            <div class="input">
+                <input type="submit" value="완료" />
+            </div>
+        </form>
+    </div>
+
+</body>
+<style>
+    @font-face {
+        font-family: 'yg-jalnan';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #fefae0;
+        font-family: "yg-jalnan";
+        display: flex;
+    }
+
+    .congraturation {
+        border-radius: 20px;
+        padding: 10px;
+        margin: auto;
+        background-color: #e9c46a;
+        color: #264653;
+        text-align: center;
+        box-shadow: 0 0 11px rgba(40,40,40,.2); 
+    }
+
+    .input {
+        margin: 10px;
+    }
+
+    input {
+        border: none;
+        border-radius: 3px;
+        outline: none;
+        width: 70%;
+        font-family: "yg-jalnan";
+        font-size: 16px;
+        box-shadow: 0 0 5px rgba(40,40,40,.2); 
+
+    }
+</style>
+</html>
