@@ -2,15 +2,15 @@
     "questions": [
         {
             "id": 0,
-            "question": "나의 생일은 언제인가요?",
-            "hint": "YYMMDD",
-            "answer": "070208"
+            "question": "오늘은 CMS에 몇시에 가나요?",
+            "hint": "ex) 1시10분",
+            "answer": "3시30분"
         },
         {
             "id": 1,
-            "question": "내가 가장 좋아하는 스포츠는 무엇인가요?",
-            "hint": "한글로",
-            "answer": "농구"
+            "question": "오늘은 과학을 들으러 가나요 수학을 들으러 가나요?",
+            "hint": "과학 or 수학",
+            "answer": "과학"
         }
     ]
 }

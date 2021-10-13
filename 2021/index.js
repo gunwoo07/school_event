@@ -2,6 +2,8 @@
 const express = require("express");
 const app = express();
 
+// Import body-parser to read post data
+const bodyParser = require("body-parser");
 // Import cookie-parser to read cookie from client
 const cookieParser = require("cookie-parser");
 // Import ejs to load html
@@ -15,6 +17,9 @@ const questionViewer = require("./src/questionViewer");
 const port = 3000;
 
 
+// Declare that we are going to use body-parser
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 // Declare that we are going to use cookie-parser
 app.use(cookieParser());
 // Declare view engine to ejs
