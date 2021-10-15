@@ -20,6 +20,10 @@ let checkStatus = (req, res, questions) => {
         return 0;
     }
 
+    if (Object.keys(cookies).includes("check") && cookies["check"] == "true") {
+        return -1;
+    }
+
     // More than questions
     if (Object.keys(cookies).length > questions.length) {
         // Delete all cookies
@@ -63,6 +67,11 @@ router.get("/", (req, res) => {
         // Get now user's status
         let status = checkStatus(req, res, jsonData["questions"]);
 
+        if (status == -1) {
+            res.redirect('/already');
+            return;
+        }
+
         if (status == jsonData["questions"].length) {
             res.render("finish");
             return;
@@ -97,6 +106,11 @@ router.get("/:answer", (req, res) => {
         let jsonData = JSON.parse(jsonFile);
         // Get now user's status
         let status = checkStatus(req, res, jsonData["questions"]);
+
+        if (status == -1) {
+            res.redirect('/already');
+            return;
+        }
 
         res.cookie(String(status), userAnswer);
 
@@ -145,9 +159,11 @@ router.post("/finish", (req, res) => {
 
                 fs.writeFile(successPath, JSON.stringify(successData, null, 2), () => {});
                 // Delete all cookies
-                for (var i = 0; i < Object.keys(cookies).length; i++) {
-                    res.clearCookie(Object.keys(cookies)[i]);
+                for (var i = 0; i < Object.keys(req.cookies).length; i++) {
+                    res.clearCookie(Object.keys(req.cookies)[i]);
                 }
+                res.cookie("check", "true");
+                res.redirect('/question');
                 return;
             });
             return;

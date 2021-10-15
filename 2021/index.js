@@ -9,8 +9,10 @@ const cookieParser = require("cookie-parser");
 // Import ejs to load html
 const ejs = require("ejs");
 
-// Import questionViewer
+// Import questionViewer, already
 const questionViewer = require("./src/questionViewer");
+const already = require("./src/already");
+const description = require("./src/description");
 
 
 // Declare developing port to 3000
@@ -26,6 +28,8 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 // Declare routers
 app.use("/question", questionViewer);
+app.use("/already", already);
+app.use("/", description);
 
 
 // Start listening
