@@ -9,13 +9,15 @@
 <body>
     <div class="question-box">
         <div class="question">
-		            <%= question %>
-
+            <div class="q">
+                <%= question %>
+            </div>
 			<form action="/question/check" method="get">
-				<input type="text" id="userAnswer", name="userAnswer"autocomplete='off'>
-				<input type="submit">
+				<input type="text" id="userAnswer", name="userAnswer" autocomplete='off'>
+				<input type="submit" value="확인">
 			</form>
         </div>
+        <br>
         <div class="hint">
             힌트 <%= hint %>
         </div>
@@ -23,8 +25,8 @@
 </body>
 <style>
     @font-face {
-        font-family: 'yg-jalnan';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+        font-family: 'IM_Hyemin-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2') format('woff');
         font-weight: normal;
         font-style: normal;
     }
@@ -34,7 +36,7 @@
         height: 100%;
         overflow: hidden;
         background-color: #666699;
-        font-family: "yg-jalnan";
+        font-family: "IM_Hyemin-Regular";
         display: flex;
     }
 
@@ -49,17 +51,22 @@
     }
 
     .question {
-        font-size: 26px;
+        font-size: 30px;
     }
 	
     input {
         border: none;
         border-radius: 3px;
+        height: 35px;
         outline: none;
         width: 70%;
-        font-family: "yg-jalnan";
+        font-family: "IM_Hyemin-Regular";
         font-size: 16px;
         box-shadow: 0 0 5px rgba(40,40,40,.2); 
+    }
+
+    .q {
+        margin-bottom: 10px;
     }
 </style>
 </html>

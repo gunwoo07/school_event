@@ -4,7 +4,7 @@
             "id": 0,
             "question": "처음이니까 쉬운 문제, 우리 학교 이름은?",
             "hint": "ex) 00중",
-            "answer": "dfafddfsaadfssdfaadsfadfs"
+            "answer": "장승중"
         },
         {
             "id": 1,
@@ -15,6 +15,12 @@
         {
             "id": 2,
             "question": "앞에 있던 것들을 맞추다니 대단하군, 그렇다면 우리학교 운동장에는 농구 골대가 몇개지?",
+            "hint": "숫자로 쓰시오 ex) 3",
+            "answer": "5"
+        },
+        {
+            "id": 3,
+            "question": "",
             "hint": "숫자로 쓰시오 ex) 3",
             "answer": "5"
         }
