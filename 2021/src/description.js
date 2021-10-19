@@ -10,6 +10,9 @@ router.get("/", (req, res) => {
 	var nameOfCookies = Object.keys(cookies);
 	
 	for (var i = 0; i < nameOfCookies.length; i++) {
+		if (nameOfCookies[i] == 'check') {
+			continue;
+		}
 		res.clearCookie(nameOfCookies[i]);
 		// res.clearCookie(nameOfCookies[i]);
 	}
