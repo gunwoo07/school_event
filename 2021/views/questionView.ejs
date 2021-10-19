@@ -9,7 +9,12 @@
 <body>
     <div class="question-box">
         <div class="question">
-            <%= question %>
+		            <%= question %>
+
+			<form action="/question/check" method="get">
+				<input type="text" id="userAnswer", name="userAnswer"autocomplete='off'>
+				<input type="submit">
+			</form>
         </div>
         <div class="hint">
             힌트 <%= hint %>
@@ -28,7 +33,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background-color: #fefae0;
+        background-color: #666699;
         font-family: "yg-jalnan";
         display: flex;
     }
@@ -45,6 +50,16 @@
 
     .question {
         font-size: 26px;
+    }
+	
+    input {
+        border: none;
+        border-radius: 3px;
+        outline: none;
+        width: 70%;
+        font-family: "yg-jalnan";
+        font-size: 16px;
+        box-shadow: 0 0 5px rgba(40,40,40,.2); 
     }
 </style>
 </html>

@@ -50,7 +50,10 @@ let checkStatus = (req, res, questions) => {
 
 
 router.get("/", (req, res) => {
-
+	if (req.cookies.check  && req.cookies.check == 'true') {
+		res.redirect('/already');
+		return;
+	}
     // Declare question data file path
     let filePath = path.join(__dirname, "../data/questions.json");
 
@@ -87,12 +90,12 @@ router.get("/", (req, res) => {
 });
 
 
-router.get("/:answer", (req, res) => {
-
+router.get("/check", (req, res) => {
+	
     // Declare question data file path
     let filePath = path.join(__dirname, "../data/questions.json");
     // Declare input answer by user
-    let userAnswer = req.params.answer;
+    let userAnswer = req.query.userAnswer;
 
     // Read question data with utf8 encoding
     fs.readFile(filePath, "utf8", (err, jsonFile) => {
