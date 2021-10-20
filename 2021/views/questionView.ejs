@@ -10,7 +10,7 @@
     <div class="question-box">
         <div class="question">
             <div class="q">
-                <%= question %>
+                <%- question %>
             </div>
 			<form action="/question/check" method="get">
 				<input type="text" id="userAnswer", name="userAnswer" autocomplete='off'>
@@ -19,7 +19,7 @@
         </div>
         <br>
         <div class="hint">
-            힌트 <%= hint %>
+            힌트) <%= hint %>
         </div>
     </div>
 </body>
